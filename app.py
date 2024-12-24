@@ -6,8 +6,20 @@ from collections import Counter
 import json
 import os
 
-# アイコン画像の表示（画像をプロジェクト内のassetsフォルダに配置）
-st.image("assets/your_icon.png", width=100)  # 画像のパスを指定
+# インスタグラムシェアボタンとアイコンを横並びで配置（アイコンは左、シェアボタンは右）
+st.markdown("""
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <!-- アイコン（画像） -->
+        <img src="assets/your_icon.png" alt="Your Icon" width="50" height="50" style="margin-right: 15px;"/>
+        
+        <!-- Instagram シェアボタン -->
+        <a href="https://www.instagram.com/momo_nagoyafood" target="_blank">
+            <button style="background-color: #e4405f; color: white; padding: 10px 20px; border-radius: 8px; font-size: 18px; border: none;">
+                Instagramでシェア
+            </button>
+        </a>
+    </div>
+""", unsafe_allow_html=True)
 
 # Firebaseの初期化（重複初期化を防ぐための条件追加）
 if not firebase_admin._apps:
@@ -93,14 +105,5 @@ if not data.empty:
     st.write("🔝 料理ランキング（トップ5）")
     st.dataframe(dish_ranking)
 
-# インスタグラムのリンク
-st.subheader("📲 Instagramでシェアしてね！")
-st.markdown("""
-    <a href="https://www.instagram.com/momo_nagoyafood" target="_blank">
-        <button style="background-color: #e4405f; color: white; padding: 10px 20px; border-radius: 8px; font-size: 18px; border: none;">
-            Instagramでシェア
-        </button>
-    </a>
-""", unsafe_allow_html=True)
 
 
