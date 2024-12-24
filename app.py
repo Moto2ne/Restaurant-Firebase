@@ -6,6 +6,9 @@ from collections import Counter
 import json
 import os
 
+# アイコン画像の表示（画像をプロジェクト内のassetsフォルダに配置）
+st.image("assets/your_icon.png", width=100)  # 画像のパスを指定
+
 # Firebaseの初期化（重複初期化を防ぐための条件追加）
 if not firebase_admin._apps:
     # Streamlit SecretsからFirebase認証情報を取得
@@ -89,4 +92,15 @@ if not data.empty:
     dish_ranking = pd.DataFrame(dish_counts.items(), columns=["料理", "出現回数"]).sort_values(by="出現回数", ascending=False).head(5)
     st.write("🔝 料理ランキング（トップ5）")
     st.dataframe(dish_ranking)
+
+# インスタグラムのリンク
+st.subheader("📲 Instagramでシェアしてね！")
+st.markdown("""
+    <a href="https://www.instagram.com/momo_nagoyafood" target="_blank">
+        <button style="background-color: #e4405f; color: white; padding: 10px 20px; border-radius: 8px; font-size: 18px; border: none;">
+            Instagramでシェア
+        </button>
+    </a>
+""", unsafe_allow_html=True)
+
 
