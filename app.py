@@ -8,9 +8,9 @@ import os
 
 # インスタグラムシェアボタンとアイコンを横並びで配置（アイコンは左、シェアボタンは右）
 st.markdown("""
-    <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
         <!-- アイコン（画像） -->
-        <img src="assets/your_icon.png" alt="Your Icon" width="50" height="50" style="margin-right: 15px;"/>
+        <img src="https://your-repo-name.github.io/assets/your_icon.png" alt="Your Icon" width="50" height="50" style="margin-right: 15px;"/>
         
         <!-- Instagram シェアボタン -->
         <a href="https://www.instagram.com/momo_nagoyafood" target="_blank">
@@ -20,6 +20,7 @@ st.markdown("""
         </a>
     </div>
 """, unsafe_allow_html=True)
+
 
 # Firebaseの初期化（重複初期化を防ぐための条件追加）
 if not firebase_admin._apps:
