@@ -89,3 +89,4 @@ if not data.empty:
     dish_ranking = pd.DataFrame(dish_counts.items(), columns=["料理", "出現回数"]).sort_values(by="出現回数", ascending=False).head(5)
     st.write("🔝 料理ランキング（トップ5）")
     st.dataframe(dish_ranking)
+
